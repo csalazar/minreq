@@ -86,15 +86,15 @@ class Requester():
         }
 
         Test = namedtuple('Test', ['arg_name', 'param_dict'])
-        tests = [
+        necessary_tests = [
             Test('get_params', self.data.params['get']),
             Test('post_params', self.data.params['post']),
             Test('headers', self.data.headers),
-            Test('cookies', self.data.cookies)
         ]
+        cookie_test = Test('cookies', self.data.cookies)
 
         #Test every group of fields except cookies
-        for t in tests[:-1]:
+        for t in necessary_tests:
             required_params = self.determine_required_params(t)
             if required_params:
                 required_data[t.arg_name] = required_params
@@ -104,11 +104,10 @@ class Requester():
             if self.debug:
                 print '[+] Doing cookie inspection ..'
 
-            t = tests[-1]
-            required_params = self.determine_required_params(t)
+            required_params = self.determine_required_params(cookie_test)
 
             if required_params:
-                required_data[t.arg_name] = required_params
+                required_data[cookie_test.arg_name] = required_params
 
                 #Delete cookie header since cookies are in ``required_data['cookies']`` dict
                 del required_data['headers'][self.cookie_key]
