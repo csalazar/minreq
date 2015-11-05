@@ -20,7 +20,10 @@ An example using the latest one is shown below:
 .. code:: python
 
   $ python minreq-runner.py --action print_scrapy_request
-  curl 'https://en.wikipedia.org/w/load.php?debug=false&lang=en&modules=startup&only=scripts&skin=vector&*' -H 'accept-encoding: gzip, deflate, sdch' -H 'accept-language: en-US,en;q=0.8,es;q=0.6' -H 'user-agent: Mozilla/5.0' -H 'accept: */*' -H 'referer: https://en.wikipedia.org/wiki/Example' -H 'cookie: GeoIP=:::::v6; WMF-Last-Access=23-Jun-2015' --compressed
+  curl 'https://en.wikipedia.org/w/load.php?debug=false&lang=en&modules=startup&only=scripts&skin=vector&*'
+  -H 'accept-encoding: gzip, deflate, sdch' -H 'accept-language: en-US,en;q=0.8,es;q=0.6'
+  -H 'user-agent: Mozilla/5.0' -H 'accept: */*' -H 'referer: https://en.wikipedia.org/wiki/Example'
+  -H 'cookie: GeoIP=:::::v6; WMF-Last-Access=23-Jun-2015' --compressed
 
 
   Scrapy request
