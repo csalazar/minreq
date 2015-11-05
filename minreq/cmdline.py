@@ -7,8 +7,8 @@ from .actions import print_results, print_scrapy_request
 
 
 differs = {
-        'md5': MD5Differ
-    }
+    'md5': MD5Differ
+}
 
 actions = {
     'print_results': print_results,
